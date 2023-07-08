@@ -529,3 +529,4 @@
 2023-07-08T15:35:33.861Z error: User with username Dmitrii035 already exists
 2023-07-08T15:35:47.411Z info: Creating user with username: Dmitrii0156 and email: ourlab156@mail035
 2023-07-08T15:35:47.631Z info: User with username Dmitrii0156 and email ourlab156@mail035 has been created with id 85
+2023-07-08T17:07:49.061Z info: Successfully retrieved user data

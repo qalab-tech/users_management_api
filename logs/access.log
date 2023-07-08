@@ -382,3 +382,5 @@
 ::ffff:127.0.0.1 - - [08/Jul/2023:15:35:25 +0000] "POST /users HTTP/1.1" 400 47 "-" "insomnia/2023.2.0"
 ::ffff:127.0.0.1 - - [08/Jul/2023:15:35:33 +0000] "POST /users HTTP/1.1" 400 50 "-" "insomnia/2023.2.0"
 ::ffff:127.0.0.1 - - [08/Jul/2023:15:35:47 +0000] "POST /users HTTP/1.1" 201 62 "-" "insomnia/2023.2.0"
+::1 - - [08/Jul/2023:17:07:49 +0000] "GET /users HTTP/1.1" 200 3049 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+::1 - - [08/Jul/2023:17:07:49 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:3000/users" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
