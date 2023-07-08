@@ -66,17 +66,35 @@ router.post('/login', async (req, res) => {
 });
 
 // GET All users
+// GET All users with pagination
 router.get('/users', async (req, res) => {
+  const { page = 1, pageSize = 10 } = req.query;
+
   try {
-    const client = await pool.connect();
-    const result = await client.query('SELECT id, username, email FROM users');
+    const offset = (page - 1) * pageSize;
+
+    const countResult = await pool.query('SELECT COUNT(*) FROM users');
+    const totalCount = parseInt(countResult.rows[0].count);
+
+    const result = await pool.query(
+      'SELECT id, username, email FROM users OFFSET $1 LIMIT $2',
+      [offset, pageSize]
+    );
+
     const users = result.rows.map(user => {
       const { id, username, email } = user;
       return { id, username, email };
     });
-    client.release();
-    res.status(200).json(users);
-    logger.info('Successfully retrieved user data')
+
+    res.json({
+      page,
+      pageSize,
+      totalCount,
+      totalPages: Math.ceil(totalCount / pageSize),
+      users
+    });
+
+    logger.info('Successfully retrieved user data');
   } catch (err) {
     console.error(err);
     logger.error('An error occurred while fetching users');
