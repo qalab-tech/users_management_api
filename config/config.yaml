@@ -1,0 +1,10 @@
+# database configuration
+db:
+  host: localhost
+  port: 5432
+  database: postgres
+  user: postgres
+  password: password
+
+# jwt secret value
+jwt_secret: eecd9d6a7bc9dd2179aab44581fdb5a7011186a1d5109ffef5cab9634d9802f5
