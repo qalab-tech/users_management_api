@@ -67,6 +67,37 @@ router.post('/login', async (req, res) => {
 
 // GET All users
 // GET All users with pagination
+/**
+ * @swagger
+ * /users:
+ *   get:
+ *     summary: Get all users
+ *     description: Returns all users
+ *     parameters:
+ *       - name: page
+ *         in: query
+ *         description: Page number
+ *         required: false
+ *         schema:
+ *           type: integer
+ *           minimum: 1
+ *       - name: pageSize
+ *         in: query
+ *         description: Number of items per page
+ *         required: false
+ *         schema:
+ *           type: integer
+ *           minimum: 1
+ *     responses:
+ *       200:
+ *         description: Successful response
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/User'
+ */
 router.get('/users', async (req, res) => {
   const { page = 1, pageSize = 10 } = req.query;
 

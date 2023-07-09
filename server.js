@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const fs = require('fs');
 const path = require('path');
 const app = express();
+const swaggerSetup = require('./swagger');
 
 const httpLogger = (req, res, next) => {
   console.log(`${req.method} ${req.url} - ${new Date()}`);
@@ -39,6 +40,9 @@ app.use(express.json());
 
 // register user-related endpoints
 app.use('/', usersRouter);
+
+// Initialize Swagger documentation
+swaggerSetup(app);
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
